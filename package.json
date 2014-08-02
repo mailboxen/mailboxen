@@ -1,0 +1,13 @@
+{
+  "name": "mailserver",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python -m SimpleHTTPServer 8000",
+    "postinstall": "bower install"
+  },
+  "author": "",
+  "license": "ISC"
+}
