@@ -1,9 +1,12 @@
 {
-  "name": "mailserver",
+  "name": "mailboxen",
+  "main": "index.js",
   "version": "0.0.0",
+  "homepage": "https://github.com/mailboxen/mailboxen",
   "authors": [
     "dhfromkorea <dhllee424@gmail.com>"
   ],
+  "description": "secure mailbox",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -13,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-ui-router": "~0.2.10"
+    "jquery": "~2.1.1",
+    "pure": "~0.5.0"
   }
 }

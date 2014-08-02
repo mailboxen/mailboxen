@@ -1,13 +1,21 @@
 {
-  "name": "mailserver",
+  "name": "mailboxen",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "python -m SimpleHTTPServer 8000",
+    "start": "node index.js",
     "postinstall": "bower install"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.7.2",
+    "body-parser": "^1.4.3",
+    "morgan": "^1.2.2"
+  },
+  "devDependencies": {
+    "bower": "^1.3.8"
+  }
 }
