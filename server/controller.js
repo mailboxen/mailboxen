@@ -12,9 +12,9 @@ var parseConfig = function(obj){
 };
 
 module.exports.write = function(req, res) {
-  var path = __dirname + 'config.txt';
-  console.log('data', req.body);
+  var path = 'config.txt';
   var data = parseConfig(req.body);
+  // filepath === relative to the roote directory
   fs.writeFile(path, data, function(err) {
     if (err) {
       console.log(err);
