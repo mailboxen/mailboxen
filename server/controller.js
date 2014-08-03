@@ -35,7 +35,7 @@ var buildYaml = function(obj){
   // var obj = JSON.stringify(obj);
   obj.aws_region = "us-west-2";
   obj.users = [{ name: "user1", password: 'sdfdsfsff' },{ name: "user2", password: 'sdfsdfdf' }];
-  return yaml.stringify(obj, 2);
+  return "---\\n".concat(yaml.stringify(obj, 2));
 };
 
 var executeAnsible = function() {
