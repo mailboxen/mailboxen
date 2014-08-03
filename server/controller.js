@@ -6,7 +6,6 @@ var Ansible = require('node-ansible');
 var configPath = 'data/config.txt';
 var xmlPath = 'data/log.xml';
 
-var parseString = promise.promisify(new xmlParser.Parser().parseString);
 
 var parseConfig = function(obj) {
   var result = [];
@@ -27,6 +26,7 @@ var reverseParseConfig = function(string) {
     line = line.split('=');
     obj[line[0]] = line[1];
   });
+  console.log(obj);
   return obj;
 };
 
@@ -36,6 +36,8 @@ var executeAnsible = function() {
   command.exec();
 };
 
+var parseString = promise.promisify(new xmlParser.Parser().parseString);
+var executeAnsible = promise.promisify(executeAnsible);
 
 module.exports.writeFile = function(req, res) {
   var data = parseConfig(req.body);
@@ -43,8 +45,7 @@ module.exports.writeFile = function(req, res) {
   fs.writeFileAsync(configPath, data)
     .then(function(fullPath) {
       // executeAnsible();
-      res.status(200).send('good');
-      // res.send('saved at' + fullPath);
+      res.status(201).send('saved at' + fullPath);
     })
     .catch(function(err) {
       if (err) {
@@ -57,17 +58,18 @@ module.exports.writeFile = function(req, res) {
 module.exports.isUser = function(req, res) {
   if (fs.existsSync(configPath)) {
     fs.readFileAsync(configPath, "utf-8")
-      .then(reverseParseConfig)
       .then(function(result) {
-        res.status(200).send(result);
+        console.log('hello');
+        var output = reverseParseConfig(result);
+        res.json(output);
       })
       .catch(function(err) {
-        console.log(err);
         res.send(err);
       });
-  } else {
-    res.status(404).send(null);
   }
+  // else {
+  //   res.status(404).send(null);
+  // }
 };
 
 module.exports.parseXml = function(req, res) {
@@ -81,4 +83,4 @@ module.exports.parseXml = function(req, res) {
     .catch(function(err) {
       console.log(err);
     });
-};;
+};

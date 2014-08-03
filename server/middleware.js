@@ -11,4 +11,5 @@ module.exports = function(app, express) {
   app.use(bodyParser.json());
   app.get('/user', controller.isUser);
   app.post('/config', controller.writeFile);
+  app.get('/log', controller.parseXml);
 };
