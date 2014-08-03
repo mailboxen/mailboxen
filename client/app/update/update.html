@@ -1,63 +1,31 @@
 <div class="header">
-  <h2 class="content-subhead">update</h2>
-  <p>update</p>
+  <h1>Update</h1>
+  <h2>update ...</h2>
 </div>
 <div class="content">
-  <div class="pure-g">
-    <div class="pure-u-1-1">
-      <form id="form" action="/config" method="POST" class="pure-form pure-form-aligned">
-        <fieldset>
-          <div class="pure-control-group">
-            <label for="DNS">DNS</label>
-            <input na me="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
-          </div>
-          <div class="pure-control-group">
-            <label for="DOMAIN">DOMAIN</label>
-            <input name="DOMAIN" type="text" placeholder="e.g. www.mailboxen.com">
-          </div>
-
-          <div class="pure-control-group">
-            <label for="AWS_ACCESS_KEY_ID" class="pure-checkbox">AWS_ID
-            </label>
-            <input name="AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF">
-          </div>
-
-          <div class="pure-control-group">
-            <label for="AWS_SECRET_ACCESS_KEY" class="pure-checkbox">AWS_KEY
-            </label>
-            <input name="AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd">
-          </div>
-
-          <div class="pure-control-group">
-            <label for="state">other options</label>
-            <select name="state">
-              <option>AL</option>
-              <option>CA</option>
-              <option>IL</option>
-            </select>
-          </div>
-          <div class="pure-control-group">
-            <label for="state">other options</label>
-            <select name="state">
-              <option>AL</option>
-              <option>CA</option>
-              <option>IL</option>
-            </select>
-          </div>
-          <div class="pure-control-group">
-            <label for="state">other options</label>
-            <select name="state">
-              <option>AL</option>
-              <option>CA</option>
-              <option>IL</option>
-            </select>
-          </div>
-
-          <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary">Create</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
+  <form class="pure-form pure-form-aligned">
+    <fieldset>
+      <div class="pure-control-group pure-form-aligned">
+        <label for="domain">Domain:</label>
+        <input class="pure-input-1-2" name="DOMAIN" type="url" placeholder="e.g. www.mailboxen.com">
+      </div>
+      <div class="pure-control-group pure-form-aligned">
+        <label for="DNS">DNS:</label>
+        <input class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
+      </div>
+      <div class="pure-control-group pure-form-aligned">
+        <label for="AWS_ACCESS_KEY_ID">AWS_ID
+        </label>
+        <input class="pure-input-1-2" name="AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF">
+      </div>
+      <div class="pure-control-group pure-form-aligned">
+        <label for="AWS_SECRET_ACCESS_KEY">AWS_KEY
+        </label>
+        <input class="pure-input-1-2" name="AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd">
+      </div>
+      <div class="pure-controls">
+        <button type="submit" class="pure-button pure-button-primary">UPDATE</button>
+      </div>
+    </fieldset>
+  </form>
 </div>
