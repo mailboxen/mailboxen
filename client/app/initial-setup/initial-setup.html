@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/pure-min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="#">mailboxen</a>
+        <ul>
+          <li><a href="#">update setting</a>
+          </li>
+          <li><a href="#">dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <div class="content">
+        <h2 class="content-subhead">How to get started</h2>
+        <p>To set up your own secure mail server, all you need to do is provide the app your domain, dns, aws credentials. Fill out the form below.</p>
+
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+            <form id="form" action="/config" method="POST" class="pure-form pure-form-aligned">
+              <fieldset>
+                <legend></legend>
+
+                <div class="pure-control-group">
+                  <label for="DNS">DNS</label>
+                  <input na
+                  me="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
+                </div>
+                <div class="pure-control-group">
+                  <label for="DOMAIN">DOMAIN</label>
+                  <input name="DOMAIN" type="text" placeholder="e.g. www.mailboxen.com">
+                </div>
+
+                <div class="pure-control-group">
+                  <label for="AWS_ACCESS_KEY_ID" class="pure-checkbox">AWS_ID
+                  </label>
+                  <input name="AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF">
+                </div>
+
+                <div class="pure-control-group">
+                  <label for="AWS_SECRET_ACCESS_KEY" class="pure-checkbox">AWS_KEY
+                  </label>
+                  <input name="AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd">
+                </div>
+
+                <div class="pure-control-group">
+                  <label for="state">other options</label>
+                  <select name="state">
+                    <option>AL</option>
+                    <option>CA</option>
+                    <option>IL</option>
+                  </select>
+                </div>
+                <div class="pure-control-group">
+                  <label for="state">other options</label>
+                  <select name="state">
+                    <option>AL</option>
+                    <option>CA</option>
+                    <option>IL</option>
+                  </select>
+                </div>
+                <div class="pure-control-group">
+                  <label for="state">other options</label>
+                  <select name="state">
+                    <option>AL</option>
+                    <option>CA</option>
+                    <option>IL</option>
+                  </select>
+                </div>
+
+                <div class="pure-controls">
+                  <button type="submit" class="pure-button pure-button-primary">Create</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

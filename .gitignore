@@ -1,6 +1,6 @@
 .DS_Store
 .AppleDouble
-
+dashboard/
 node_modules/
 client/lib/
 

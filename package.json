@@ -1,21 +1,25 @@
 {
   "name": "mailboxen",
   "version": "0.0.0",
-  "description": "",
+  "description": "secure mail server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "postinstall": "bower install"
   },
-  "author": "",
+  "author": "dhfromkorea, thosmas nordin, grace nordin",
+  "url": "https://github.com/mailboxen/mailboxen",
   "license": "ISC",
   "dependencies": {
     "express": "^4.7.2",
     "body-parser": "^1.4.3",
-    "morgan": "^1.2.2"
+    "morgan": "^1.2.2",
+    "bluebird": "^2.2.2",
+    "xml2js": "^0.4.4"
   },
   "devDependencies": {
-    "bower": "^1.3.8"
+    "bower": "^1.3.8",
+    "nodemon": "^1.2.1"
   }
 }

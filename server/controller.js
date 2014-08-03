@@ -1,5 +1,8 @@
+var promise = require('bluebird');
 var fs = require('fs');
-var configFilePath = 'config.txt';
+var xmlParser = require('xml2js');
+
+var configFilePath = 'data/config.txt';
 
 var parseConfig = function(obj) {
   var result = [];
@@ -33,4 +36,19 @@ module.exports.writeFile = function(req, res) {
 
 module.exports.navigateToSetting = function(req, res){
 
+};
+
+module.exports.parseXml = function(req, res) {
+  var readFile = promise.promisify(fs.readFile);
+  var parseString = promise.promisify(new xmlParser.Parser().parseString);
+  readFile('log.xml')
+    .then(parseString)
+    // some option is needed to prune the raw log
+    .then(JSON.stringify)
+    .then(function(result) {
+      res.send(200, result);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 };
