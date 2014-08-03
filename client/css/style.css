@@ -238,6 +238,9 @@ aside {
   border-radius: 3px;
   color: #fff;
 }
+.aside-warning {
+  background: rgb(223, 117, 20);
+}
 .dark-skin {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -258,4 +261,9 @@ img {
 [ac-chart] {
   min-width:400px;
   min-height: 400px;
+}
+
+.highlight-box {
+  border: 3px solid #398bce;
+  color: #fff;
 }

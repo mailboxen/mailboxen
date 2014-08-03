@@ -1,14 +1,11 @@
 angular.module('app.factories', [])
-  .factory('UserFactory', function($http) {
+  .factory('UtilFactory', function($http) {
     var isServerInitialized = function() {
       $http.get({
         method: 'GET',
         url: '/user'
       }).then(function(resp) {
-        if (resp.data) {
-          return true;
-        }
-        return false;
+        return resp.data;
       }).catch(function(err) {
         throw err;
       });
@@ -16,4 +13,13 @@ angular.module('app.factories', [])
     return {
       isServerInitialized: isServerInitialized
     };
-  });
+  })
+  // .factory('utilFactory', function(){
+  //   var providers = {
+  //     'aws': false,
+  //     'do': false
+  //   };
+  //   return {
+  //     providers : providers
+  //   };
+  // });

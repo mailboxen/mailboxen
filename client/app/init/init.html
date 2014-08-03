@@ -4,57 +4,75 @@
 
 </div>
 <div class="content">
-
-  <form id="form" action="/config" method="POST" class="pure-form">
+  <form name="initForm" novalidate action="/config" method="POST" class="pure-form" >
     <fieldset>
       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your Domain Name</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="domain">Domain:</label>
-        <input class="pure-input-1-2" name="DOMAIN" type="url" placeholder="e.g. www.mailboxen.com">
+        <input class="pure-input-1-2" name="DOMAIN" type="url" placeholder="e.g. www.mailboxen.com" required>
         <p>Domain name is ... examples of domain names are.... vaild format is</p>
+      </div>
+      <div class="validation">
+        <small ng-show="initForm.NAME.$dirty && initForm.NAME.$invalid">not a valid url</small>
       </div>
       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your DNS service</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="DNS">DNS:</label>
-        <input class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
+        <input class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com" required>
         <p>DNS is ... examples of DNS are.... vaild format is</p>
+      </div>
+      <div class="validation">
+        <small ng-show="initForm.DNS.$dirty && initForm.DNS.$invalid">not a valid ip</small>
       </div>
 
       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Select Provider</h2>
       <div class="pure-g">
-        <div class="pure-u-1-2 dark-skin">
+        <div class="pure-u-1-2 dark-skin" ng-class="{'highlight-box' :isProviderSelected('aws')}" ng-click="selectProvider('aws')">
           <img src="http://www.ajcsoft.com/images/amazon-s3-logo.png" alt="">
         </div>
-        <div class="pure-u-1-2 dark-skin">
+        <div class="pure-u-1-2 dark-skin" ng-class="{'highlight-box' :isProviderSelected('do')}" ng-click="selectProvider('do')">
           <img src="http://ww1.prweb.com/prfiles/2012/07/17/10326325/gI_76678_digital-ocean-logo-4x3.png" alt="">
         </div>
       </div>
 
-      <div class="pure-control-group pure-form-aligned">
-        <label for="AWS_ACCESS_KEY_ID">AWS_ID
-        </label>
-        <input class="pure-input-1-2" name="AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF">
+      <div class="provider-aws" ng-if="isProviderSelected('aws')">
+        <div class="pure-control-group pure-form-aligned">
+          <label for="AWS_ACCESS_KEY_ID">AWS_ID:
+          </label>
+          <input class="pure-input-1-2" name="AWS_ACCESS_KEY_ID" ng-minlength=8 type="text" placeholder="e.g. XYXDUIDFUIDF" required>
+        </div>
+        <div class="pure-control-group pure-form-aligned">
+          <label for="AWS_SECRET_ACCESS_KEY">AWS_KEY:
+          </label>
+          <input class="pure-input-1-2" name="AWS_SECRET_ACCESS_KEY" ng-minlength=16 type="text" placeholder="e.g. Xsd3569349dfsdfzffssd" required>
+          <p>...</p>
+        </div>
+        <div class="validation">
+          <small ng-show="initForm.AWS_ACCESS_KEY_ID.$dirty && initForm.AWS_ACCESS_KEY_ID.$invalid">not a valid access key format</small>
+          <small ng-show="initForm.AWS_SECRET_ACCESS_KEY.$dirty && initForm.AWS_SECRET_ACCESS_KEY.$invalid">not a valid secret key format</small>
+        </div>
       </div>
-      <div class="pure-control-group pure-form-aligned">
-        <label for="AWS_SECRET_ACCESS_KEY">AWS_KEY
-        </label>
-        <input class="pure-input-1-2" name="AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd">
-        <p>...</p>
+      <div class="provider-do" ng-if="isProviderSelected('do')">
+        <aside class="aside-warning">
+          <p>Currently AWS is the only available option.</p>
+        </aside>
+        <!--<div class="validation">
+          <small ng-show="initForm..$dirty && initForm..$invalid"></small>
+          <small ng-show="initForm..$dirty && initForm.AWS_ACCESS_KEY_ID.$invalid"></small>
+        </div>-->
       </div>
-      <aside>
-        <p>Currently only AWS and digital ocean are avaiable. Check the details here.</p>
-      </aside>
 
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Additional Settings (Optional)</h2>
+<!--       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Additional Settings (Optional)</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="DNS">DNS:</label>
         <input class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
         <p>DNS is ... examples of DNS are.... vaild format is</p>
       </div>
-
-      <div class="pure-controls">
-        <button type="submit" class="pure-button pure-button-primary">Create</button>
-      </div>
+      <div class="validation">
+        <small ng-show=""></small>
+        <small ng=shop=""></small>
+      </div> -->
+        <button type="submit" class="button-xlarge pure-button pure-button-primary">Create</button>
     </fieldset>
   </form>
 </div>

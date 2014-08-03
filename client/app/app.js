@@ -9,22 +9,16 @@ angular.module('app', ['ui.router', 'angularCharts', 'app.init', 'app.update', '
         templateUrl: 'app/app.html'
       });
     //redirect to login in page
-    $urlRouterProvider.otherwise('app/init');
+    $urlRouterProvider.otherwise('app/update');
   })
-  .run(function($rootScope, $location, UserFactory) {
-    $rootScope.$on('$routeChangeStart', function(evt, next, current) {
-      if (next.$$route.controller && next.$$route.controller !== 'initCtrl') {
-        UserFactory.isServerInitialized()
-          .then(function(result) {
-            if (result){
-              next();
-            }
-            $location.path('/app/init');
-          })
-          .
-        catch(function(err) {
-          throw err;
-        });
+  .run(function($rootScope, $state, UtilFactory) {
+    $rootScope.$on('$stateChangeStart', function(evt, next, current) {
+      var user = UtilFactory.isServerInitialized();
+      console.log(user);
+      if (user) {
+        // $state.redirect('app.update');
+      } else {
+        // $state.go('app.init');
       }
     });
   });
