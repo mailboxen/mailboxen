@@ -1,5 +1,15 @@
 <div class="pure-g">
-  <div class="pure-u-1-2" ng-repeat="chart in chartTypes">
-    <div ac-chart="chart" ac-data="data1" ac-config="config1"></div>
-   </div>
+<div class="pure-offset-1-3  pure-u-1-3">
+<h2>Spam DB last updated</h2>
+<h3><i class="fa fa-3x fa-check-circle"></i> Good</h3>
+</div>
+<div class="pure-u-1-3">
+	<h2>IP status</h2>
+<h3><i class="fa fa-3x fa-check-circle"></i> Good</h3>
+</div>
+</div>
+<div class="pure-g">
+  <div class="pure-offset-1-3 pure-u-1-3" ng-repeat="datum in data">
+    <div ac-chart="datum.type" ac-data="datum.data" ac-config="datum.options"></div>
+  </div>
 </div>

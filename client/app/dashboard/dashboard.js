@@ -1,74 +1,125 @@
 angular.module('app.dashboard', [])
   .controller('DashboardCtrl', function($scope, $timeout) {
-    $scope.chartTypes = ['pie', 'bar', 'line', 'point', 'area'];
-    $scope.chartType = 'bar';
-    $timeout(function() {
-      $scope.data1 = {
-        series: ['Sales', 'Income', 'Expense', 'Laptops', 'Keyboards'],
+    $scope.data = [{
+      type: 'pie',
+      data: {
         data: [{
-          x: "Sales",
-          y: [100, 500, 0],
-          tooltip: "this is tooltip"
+          x: 'Mails successfully sent',
+          y: [1000],
+          tooltip: 'this is tooltip'
         }, {
-          x: "Not Sales",
-          y: [300, 100, 100]
-        }, {
-          x: "Tax",
-          y: [351]
-        }, {
-          x: "Not Tax",
-          y: [54, 0, 879]
+          x: 'Mails failed/refused',
+          y: [300]
         }]
-      };
-    }, 100);
-
-    $scope.data2 = {
-      series: ['<em>500</em> Keyboards', '<em>105</em> Laptops', '<em>100</em> TVs'],
-      data: [{
-        x: "Sales",
-        y: [100, 500, 0],
-        tooltip: "this is tooltip"
-      }, {
-        x: "Income",
-        y: [300, 100, 100]
-      }, {
-        x: "Expense",
-        y: [351, 50, 25]
-      }]
-    };
-
-
-    $scope.config1 = {
-      labels: false,
-      title: "Products",
-      legend: {
-        display: true,
-        position: 'left'
       },
-      innerRadius: 0
-    };
-
-    $scope.config2 = {
-      labels: false,
-      title: "HTML-enabled legend",
-      legend: {
-        display: true,
-        htmlEnabled: true,
-        position: 'right'
+      options: {
+        labels: false,
+        title: 'Bounce',
+        legend: {
+          display: true,
+          position: 'left'
+        },
+        innerRadius: 0
+      }
+    }, {
+      type: 'bar',
+      data: {
+        series: ['sent'],
+        data: [{
+          x: 'email',
+          y: [1000]
+        }, {
+          x: 'email2',
+          y: [300]
+        }, {
+          x: 'email3',
+          y: [700]
+        }, {
+          x: 'email4',
+          y: [500]
+        }, {
+          x: 'email5',
+          y: [200]
+        }]
       },
-      lineLegend: 'traditional'
-    }
-
+      options: {
+        labels: false,
+        title: 'Top 5 sender emails',
+        legend: {
+          display: true,
+          position: 'left'
+        },
+        innerRadius: 0
+      }
+    }, {
+      type: 'bar',
+      data: {
+        series: ['received'],
+        data: [{
+          x: 'email',
+          y: [3444]
+        }, {
+          x: 'email2',
+          y: [34]
+        }, {
+          x: 'email3',
+          y: [2344]
+        }, {
+          x: 'email4',
+          y: [233]
+        }, {
+          x: 'email5',
+          y: [4344]
+        }]
+      },
+      options: {
+        labels: false,
+        title: 'Top 5 receiver emails',
+        legend: {
+          display: true,
+          position: 'left'
+        },
+        innerRadius: 0
+      }
+    }, {
+      type: 'line',
+      data: {
+        series: ['send', 'receive'],
+        data: [{
+          x: 'June',
+          y: [100, 500],
+          tooltip: 'this is tooltip'
+        }, {
+          x: 'July',
+          y: [300, 100]
+        }, {
+          x: 'Aug',
+          y: [351, 300]
+        }, {
+          x: 'Sep',
+          y: [54, 700]
+        }]
+      },
+      options: {
+        labels: false,
+        title: 'Monthly overview',
+        legend: {
+          display: true,
+          position: 'left'
+        },
+        innerRadius: 0
+      }
+    }];
   })
   .run(function() {
 
   })
 
-  .config(function($stateProvider) {
+.config(function($stateProvider) {
   $stateProvider
     .state('app.dashboard', {
       url: '/dashboard',
-      templateUrl: "app/dashboard/dashboard.html",
-      controller: "DashboardCtrl"
+      templateUrl: 'app/dashboard/dashboard.html',
+      controller: 'DashboardCtrl'
     });
 });
