@@ -10,6 +10,6 @@ module.exports = function(app, express) {
   }));
   app.use(bodyParser.json());
   app.use(controller.parseXml);
+  app.get('/user', controller.isUser);
   app.post('/config', controller.writeFile);
-  app.get('/setting', controller.navigateToSetting)
 };

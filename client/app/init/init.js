@@ -6,7 +6,7 @@ angular.module('app.init', [])
         templateUrl: 'app/init/init.html'
       });
   })
-  .controller(function(){
+  .controller('initCtrl', function(){
     // TODO:
   })
   .run(function() {
