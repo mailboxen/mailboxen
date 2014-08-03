@@ -2,6 +2,6 @@
 .AppleDouble
 dashboard/
 node_modules/
-client/lib/
+#client/lib/
 
 config.txt
