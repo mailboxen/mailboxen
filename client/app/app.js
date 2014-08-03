@@ -1,4 +1,5 @@
-angular.module('app', ['ui.router','app.init', 'app.update', 'app.dashboard', 'app.services.factories', 'app.services.d3', 'app.charts'])
+// the main app module loads two external modules (ui router, angular charts)
+angular.module('app', ['ui.router', 'angularCharts', 'app.init', 'app.update', 'app.dashboard', 'app.services.factories', 'app.services.d3', 'app.charts'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('app', {

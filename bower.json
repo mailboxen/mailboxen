@@ -15,6 +15,7 @@
   "dependencies": {
     "angular-ui-router": "~0.2.10",
     "angular": "~1.2.21",
-    "d3": "~3.4.11"
+    "d3": "~3.4.11",
+    "angular-charts": "~0.2.4"
   }
 }
