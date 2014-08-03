@@ -1,7 +1,7 @@
 angular.module('app.factories', [])
-  .factory('UtilFactory', function($http) {
+  .factory('UtilFactory', function($http, $state) {
     var isServerInitialized = function() {
-      $http.get({
+      return $http.get({
         method: 'GET',
         url: '/user'
       }).then(function(resp) {
@@ -10,16 +10,22 @@ angular.module('app.factories', [])
         throw err;
       });
     };
-    return {
-      isServerInitialized: isServerInitialized
+
+    var submitConfigData = function(obj) {
+      return $http({
+          method: 'POST',
+          url: '/config',
+          data: JSON.stringify(obj)
+        })
+        .then(function(resp) {
+          $state.go('app.dashboard');
+        })
+        .catch(function(error) {
+          console.log("Errors ", error);
+        });
     };
-  })
-  // .factory('utilFactory', function(){
-  //   var providers = {
-  //     'aws': false,
-  //     'do': false
-  //   };
-  //   return {
-  //     providers : providers
-  //   };
-  // });
+    return {
+      isServerInitialized: isServerInitialized,
+      submitConfigData: submitConfigData
+    };
+  });

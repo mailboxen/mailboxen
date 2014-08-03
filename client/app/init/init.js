@@ -7,13 +7,16 @@ angular.module('app.init', [])
         controller: 'InitCtrl'
       });
   })
-  .controller('InitCtrl', function($scope) {
+  .controller('InitCtrl', function($scope, UtilFactory) {
     // TODO:
     var options = {
       'aws': false,
       'do': false
     };
-
+    $scope.data = {};
+    $scope.submitConfigData = function(){
+      UtilFactory.submitConfigData($scope.data);
+    };
     $scope.selectProvider = function(provider) {
       if (options && !options[provider]) {
         for (var option in options) {

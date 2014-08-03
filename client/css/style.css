@@ -267,3 +267,7 @@ img {
   border: 3px solid #398bce;
   color: #fff;
 }
+.loading {
+  width: 150px;
+  height:150px;
+}

@@ -1,6 +1,7 @@
 var promise = require('bluebird');
 var fs = promise.promisifyAll(require("fs"));
 var xmlParser = require('xml2js');
+var Ansible = require('node-ansible');
 
 var configPath = 'data/config.txt';
 var xmlPath = 'data/log.xml';
@@ -22,7 +23,7 @@ var reverseParseConfig = function(string) {
   var arr = string.split('\n');
   var obj = {};
   var list = ["DOMAIN", "DNS", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"];
-  arr.forEach(function(line){
+  arr.forEach(function(line) {
     line = line.split('=');
     obj[line[0]] = line[1];
   });
@@ -30,13 +31,20 @@ var reverseParseConfig = function(string) {
 };
 
 
+var executeAnsible = function() {
+  var command = new Ansible.AdHoc().module('shell').hosts('local').args("echo 'hello'");
+  command.exec();
+};
+
+
 module.exports.writeFile = function(req, res) {
   var data = parseConfig(req.body);
-  console.log(data);
   // filepath === relative to the roote directory
   fs.writeFileAsync(configPath, data)
     .then(function(fullPath) {
-      res.send('saved at' + fullPath);
+      // executeAnsible();
+      res.status(200).send('good');
+      // res.send('saved at' + fullPath);
     })
     .catch(function(err) {
       if (err) {
@@ -50,14 +58,14 @@ module.exports.isUser = function(req, res) {
   if (fs.existsSync(configPath)) {
     fs.readFileAsync(configPath, "utf-8")
       .then(reverseParseConfig)
-      .then(function(result){
+      .then(function(result) {
         res.status(200).send(result);
       })
       .catch(function(err) {
         console.log(err);
         res.send(err);
       });
-  }else{
+  } else {
     res.status(404).send(null);
   }
 };
@@ -73,4 +81,4 @@ module.exports.parseXml = function(req, res) {
     .catch(function(err) {
       console.log(err);
     });
-};
+};;
