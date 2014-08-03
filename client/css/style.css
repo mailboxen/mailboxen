@@ -271,3 +271,7 @@ img {
   width: 150px;
   height:150px;
 }
+.footer-snippet{
+  position:absolute;
+  bottom:0;
+}

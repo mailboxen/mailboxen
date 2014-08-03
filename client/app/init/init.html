@@ -9,7 +9,8 @@
       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your Domain Name</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="domain">domain:</label>
-        <input ng-model="data.domain" class="pure-input-1-2" name="domain" type="url" placeholder="e.g. example.com" required>
+        <!-- type url -->
+        <input ng-model="data.domain" class="pure-input-1-2" name="domain" placeholder="e.g. example.com" required>
       </div>
       <div class="validation">
         <small ng-show="initform.name.$dirty && initform.name.$invalid">not a valid url</small>
@@ -17,6 +18,7 @@
       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your IP Address</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="dns">dns:</label>
+            <!-- type text -->
         <input ng-model="data.dns" class="pure-input-1-2" name="dns" type="text" placeholder="e.g. 8.8.8.8" required>
         <p>Your IP address so that we can hook it up using services like Route53.</p>
       </div>

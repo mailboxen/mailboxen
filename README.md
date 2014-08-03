@@ -22,6 +22,16 @@
 
 Ansible
 1. Install ansible on your local machine
+http://docs.ansible.com/intro_installation.html
+If you don’t have pip installed in your version of Python, install pip:
+
+$ sudo easy_install pip
+Ansible also uses the following Python modules that need to be installed:
+
+echo "127.0.0.1" > ~/ansible_hosts
+export ANSIBLE_HOSTS=~/ansible_hosts
+$ sudo pip install paramiko PyYAML jinja2 httplib2
+
 2. Create an AWS instance with tag Name:mailboxen
      - Security group allow: ssh, smtpd, https, imaps, 587, icmp
 3. Link your ec2-user private key in keys/ec2-user
