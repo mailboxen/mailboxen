@@ -1,8 +1,12 @@
 .DS_Store
 .AppleDouble
-dashboard/
-node_modules/
-#client/lib/
+
+# commented this out as a quickfix to heroku deployment issue
+# client/lib/
 
 data/*.yml
 data/*.txt
+
+dashboard/
+node_modules/
+

@@ -9,19 +9,19 @@ angular.module('app', ['ui.router', 'angularCharts', 'app.init', 'app.update', '
         templateUrl: 'app/app.html'
       });
     //redirect to login in page
-    $urlRouterProvider.otherwise('app/update');
+    $urlRouterProvider.otherwise('app/init');
   })
   .run(function($rootScope, $http, $state, UtilFactory) {
-    $rootScope.$on('$stateChangeStart', function(evt, next, current) {
-      UtilFactory.userExists()
-        .then(function(user) {
-          if (!user) {
-            // if user doesn't exist
-            // redirect to the init
-            $state.go('app.init');
-          }else{
-            $rootScope.user = user;
-          }
-        });
-    });
+    // $rootScope.$on('$stateChangeStart', function(evt, next, current) {
+    //   UtilFactory.userExists()
+    //     .then(function(user) {
+    //       if (!user) {
+    //         // if user doesn't exist
+    //         // redirect to the init
+    //         $state.go('app.init');
+    //       }else{
+    //         $rootScope.user = user;
+    //       }
+    //     });
+    // });
   });

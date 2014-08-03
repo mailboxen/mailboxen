@@ -1,31 +1,30 @@
 <div class="header">
-  <h1>quick start</h1>
-  <h2>fill out the following form to roll out your own secure mail server under 5 mins.</h2>
+  <h1>Quick Start</h1>
+  <h2>Fill out the following form to roll out your own secure mail server under 5 mins.</h2>
 
 </div>
 <div class="content">
   <form name="initform" novalidate ng-submit="submitConfigData()" class="pure-form" >
     <fieldset>
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;your domain name</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your Domain Name</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="domain">domain:</label>
-        <input ng-model="data.domain" class="pure-input-1-2" name="domain" type="url" placeholder="e.g. www.mailboxen.com" required>
-        <p>domain name is ... examples of domain names are.... vaild format is</p>
+        <input ng-model="data.domain" class="pure-input-1-2" name="domain" type="url" placeholder="e.g. example.com" required>
       </div>
       <div class="validation">
         <small ng-show="initform.name.$dirty && initform.name.$invalid">not a valid url</small>
       </div>
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;your dns service</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your IP Address</h2>
       <div class="pure-control-group pure-form-aligned">
         <label for="dns">dns:</label>
-        <input ng-model="data.dns" class="pure-input-1-2" name="dns" type="text" placeholder="e.g. your IP address like 94.76.202.152" required>
-        <p>your IP address so that we can hook it up using services like Route53.</p>
+        <input ng-model="data.dns" class="pure-input-1-2" name="dns" type="text" placeholder="e.g. 8.8.8.8" required>
+        <p>Your IP address so that we can hook it up using services like Route53.</p>
       </div>
       <div class="validation">
         <small ng-show="initform.dns.$dirty && initform.dns.$invalid">not a valid ip</small>
       </div>
 
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;select Provider</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Select a Provider</h2>
       <div class="pure-g">
         <div class="pure-u-1-2 dark-skin" ng-class="{'highlight-box' :isProviderSelected('aws')}" ng-click="selectProvider('aws')">
           <img src="http://www.ajcsoft.com/images/amazon-s3-logo.png" alt="">
@@ -45,7 +44,6 @@
           <label for="aws_secret_key">aws_secret_key:
           </label>
           <input ng-model="data.aws_secret_key" class="pure-input-1-2" name="aws_secret_key" ng-minlength=16 type="text" placeholder="e.g. xsd3569349dfsdfzffssd" required>
-          <p>...</p>
         </div>
         <div class="validation">
           <small ng-show="initform.aws_access_key.$dirty && initform.aws_access_key_id.$invalid">not a valid access key format</small>

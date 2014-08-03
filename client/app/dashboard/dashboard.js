@@ -35,19 +35,19 @@ angular.module('app.dashboard', [])
       data: {
         series: ['sent'],
         data: [{
-          x: 'email',
+          x: 'Alice',
           y: [1000]
         }, {
-          x: 'email2',
+          x: 'Bob',
           y: [300]
         }, {
-          x: 'email3',
+          x: 'Jim',
           y: [700]
         }, {
-          x: 'email4',
+          x: 'Tom',
           y: [500]
         }, {
-          x: 'email5',
+          x: 'DH',
           y: [200]
         }]
       },
@@ -65,19 +65,19 @@ angular.module('app.dashboard', [])
       data: {
         series: ['received'],
         data: [{
-          x: 'email',
+          x: 'Alice',
           y: [3444]
         }, {
-          x: 'email2',
+          x: 'Bob',
           y: [34]
         }, {
-          x: 'email3',
+          x: 'Jim',
           y: [2344]
         }, {
-          x: 'email4',
+          x: 'Tom',
           y: [233]
         }, {
-          x: 'email5',
+          x: 'DH',
           y: [4344]
         }]
       },
@@ -93,7 +93,7 @@ angular.module('app.dashboard', [])
     }, {
       type: 'line',
       data: {
-        series: ['send', 'receive'],
+        series: ['sent', 'received'],
         data: [{
           x: 'June',
           y: [100, 500],

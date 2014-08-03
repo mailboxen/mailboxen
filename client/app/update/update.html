@@ -1,6 +1,6 @@
 <div class="header">
-  <h1>update</h1>
-  <h2>update your configuration.</h2>
+  <h1>Update</h1>
+  <h2>Update your configuration.</h2>
 </div>
 <div class="content">
   <form novalidate ng-submit="updateData()" class="pure-form pure-form-aligned">
@@ -14,14 +14,14 @@
         <input class="pure-input-1-2" ng-model="user.dns" type="text" placeholder="e.g. your IP address like 94.76.202.152" value="{{user.dns}}" required>
       </div>
       <div class="pure-control-group pure-form-aligned">
-        <label for="aws_access_key">aws_access_key
+        <label for="aws_access_key">aws_access_key:
         </label>
-        <input class="pure-input-1-2" ng-model="user.aws_access_key" type="text" placeholder="e.g. some string" value="{{user.aws_access_key}}" required>
+        <input class="pure-input-1-2" ng-model="user.aws_access_key" type="text" placeholder="e.g. your aws access key" value="{{user.aws_access_key}}" required>
       </div>
       <div class="pure-control-group pure-form-aligned">
-        <label for="aws_secret_key">aws_secret_key
+        <label for="aws_secret_key">aws_secret_key:
         </label>
-        <input class="pure-input-1-2" ng-model="user.aws_secret_key" type="text" placeholder="e.g. some string" value="{{aws_secret_key}}" required>
+        <input class="pure-input-1-2" ng-model="user.aws_secret_key" type="text" placeholder="e.g. your aws secret key" value="{{aws_secret_key}}" required>
       </div>
       <div class="pure-controls">
         <button type="submit" class="button-xlarge pure-button pure-button-primary">update</button>
