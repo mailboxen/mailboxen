@@ -1,0 +1,9 @@
+---
+domain: example.com
+users:
+  - { name: user1, password: '' }
+  - { name: user2, password: '' }
+
+# To generate password:
+#   pip install passlib
+#   python -c "from passlib.hash import sha512_crypt; print sha512_crypt.encrypt('<password>')"
