@@ -3,9 +3,7 @@ angular.module('app.init', [])
     $stateProvider
       .state('app.init', {
         url: '/init',
-        // you don't transition to this state
-        abstract: true,
-        templateUrl: 'app/initial-setup/initial-setup.html'
+        templateUrl: 'app/init/init.html'
       });
   })
   .controller(function(){

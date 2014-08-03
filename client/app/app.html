@@ -1,6 +1,28 @@
-<p>app.html</p>
-<a ui-sref="app.dashboard">dashboard</a>
+<div id="layout">
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <div id="menu">
+    <div class="pure-menu pure-menu-open">
+      <a class="pure-menu-heading" href="#">Mailboxen</a>
+      <ul>
+        <li><a ui-sref="app.init">initial setting</a>
+        </li>
+        <li><a ui-sref="app.dashboard">dashboard</a>
+        </li>
+        <li><a ui-sref="app.update">update setting</a>
+        </li>
+        <li><a ui-sref="app.about">about</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="main">
+    <!-- sub view -->
+    <div ui-view></div>
+  </div>
+</div>
 <!-- <a ui-sref="app.login">dashboard</a>
 <a ui-sref="app.signup">dashboard</a>
  -->
-<div ui-view></div>

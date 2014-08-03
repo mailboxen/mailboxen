@@ -3,9 +3,7 @@ angular.module('app.update', [])
     $stateProvider
       .state('app.update', {
         url: '/update',
-        // you don't transition to this state
-        abstract: true,
-        templateUrl: 'app/update-setup/update-setup.html'
+        templateUrl: 'app/update/update.html'
       });
   })
   .controller(function(){

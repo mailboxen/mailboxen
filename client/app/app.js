@@ -8,7 +8,7 @@ angular.module('app', ['ui.router','app.init', 'app.update', 'app.dashboard', 'a
         templateUrl: 'app/app.html'
       });
     //redirect to login in page
-    $urlRouterProvider.otherwise('app/dashboard');
+    $urlRouterProvider.otherwise('app/init');
   })
   .run(function() {
     // TODO: auth
