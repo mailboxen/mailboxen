@@ -1,78 +1,78 @@
 <div class="header">
-  <h1>Quick start</h1>
-  <h2>Fill out the following form to roll out your own secure mail server under 5 mins.</h2>
+  <h1>quick start</h1>
+  <h2>fill out the following form to roll out your own secure mail server under 5 mins.</h2>
 
 </div>
 <div class="content">
-  <form name="initForm" novalidate ng-submit="submitConfigData()" class="pure-form" >
+  <form name="initform" novalidate ng-submit="submitConfigData()" class="pure-form" >
     <fieldset>
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your Domain Name</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;your domain name</h2>
       <div class="pure-control-group pure-form-aligned">
-        <label for="domain">Domain:</label>
-        <input ng-model="data.DOMAIN" class="pure-input-1-2" name="DOMAIN" type="url" placeholder="e.g. www.mailboxen.com" required>
-        <p>Domain name is ... examples of domain names are.... vaild format is</p>
+        <label for="domain">domain:</label>
+        <input ng-model="data.domain" class="pure-input-1-2" name="domain" type="url" placeholder="e.g. www.mailboxen.com" required>
+        <p>domain name is ... examples of domain names are.... vaild format is</p>
       </div>
       <div class="validation">
-        <small ng-show="initForm.NAME.$dirty && initForm.NAME.$invalid">not a valid url</small>
+        <small ng-show="initform.name.$dirty && initform.name.$invalid">not a valid url</small>
       </div>
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Your DNS service</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;your dns service</h2>
       <div class="pure-control-group pure-form-aligned">
-        <label for="DNS">DNS:</label>
-        <input ng-model="data.DNS" class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com" required>
-        <p>DNS is ... examples of DNS are.... vaild format is</p>
+        <label for="dns">dns:</label>
+        <input ng-model="data.dns" class="pure-input-1-2" name="dns" type="text" placeholder="e.g. your IP address like 94.76.202.152" required>
+        <p>your IP address so that we can hook it up using services like Route53.</p>
       </div>
       <div class="validation">
-        <small ng-show="initForm.DNS.$dirty && initForm.DNS.$invalid">not a valid ip</small>
+        <small ng-show="initform.dns.$dirty && initform.dns.$invalid">not a valid ip</small>
       </div>
 
-      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Select Provider</h2>
+      <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;select Provider</h2>
       <div class="pure-g">
         <div class="pure-u-1-2 dark-skin" ng-class="{'highlight-box' :isProviderSelected('aws')}" ng-click="selectProvider('aws')">
           <img src="http://www.ajcsoft.com/images/amazon-s3-logo.png" alt="">
         </div>
         <div class="pure-u-1-2 dark-skin" ng-class="{'highlight-box' :isProviderSelected('do')}" ng-click="selectProvider('do')">
-          <img src="http://ww1.prweb.com/prfiles/2012/07/17/10326325/gI_76678_digital-ocean-logo-4x3.png" alt="">
+          <img src="http://ww1.prweb.com/prfiles/2012/07/17/10326325/gi_76678_digital-ocean-logo-4x3.png" alt="">
         </div>
       </div>
 
-      <div class="provider-aws" ng-if="isProviderSelected('aws')">
+      <div class="Provider-aws" ng-if="isProviderSelected('aws')">
         <div class="pure-control-group pure-form-aligned">
-          <label for="AWS_ACCESS_KEY_ID">AWS_ID:
+          <label for="aws_access_key">aws_access_key:
           </label>
-          <input ng-model="data.AWS_ACCESS_KEY_ID" class="pure-input-1-2" name="AWS_ACCESS_KEY_ID" ng-minlength=8 type="text" placeholder="e.g. XYXDUIDFUIDF" required>
+          <input ng-model="data.aws_access_key" class="pure-input-1-2" name="aws_access_key_id" ng-minlength=8 type="text" placeholder="e.g. xyxduidfuidf" required>
         </div>
         <div class="pure-control-group pure-form-aligned">
-          <label for="AWS_SECRET_ACCESS_KEY">AWS_KEY:
+          <label for="aws_secret_key">aws_secret_key:
           </label>
-          <input ng-model="data.AWS_SECRET_ACCESS_KEY" class="pure-input-1-2" name="AWS_SECRET_ACCESS_KEY" ng-minlength=16 type="text" placeholder="e.g. Xsd3569349dfsdfzffssd" required>
+          <input ng-model="data.aws_secret_key" class="pure-input-1-2" name="aws_secret_key" ng-minlength=16 type="text" placeholder="e.g. xsd3569349dfsdfzffssd" required>
           <p>...</p>
         </div>
         <div class="validation">
-          <small ng-show="initForm.AWS_ACCESS_KEY_ID.$dirty && initForm.AWS_ACCESS_KEY_ID.$invalid">not a valid access key format</small>
-          <small ng-show="initForm.AWS_SECRET_ACCESS_KEY.$dirty && initForm.AWS_SECRET_ACCESS_KEY.$invalid">not a valid secret key format</small>
+          <small ng-show="initform.aws_access_key.$dirty && initform.aws_access_key_id.$invalid">not a valid access key format</small>
+          <small ng-show="initform.aws_secret_key.$dirty && initform.aws_secret_key.$invalid">not a valid secret key format</small>
         </div>
       </div>
-      <div class="provider-do" ng-if="isProviderSelected('do')">
+      <div class="Provider-do" ng-if="isProviderSelected('do')">
         <aside class="aside-warning">
-          <p>Currently AWS is the only available option.</p>
+          <p>currently aws is the only available option.</p>
         </aside>
         <!--<div class="validation">
-          <small ng-show="initForm..$dirty && initForm..$invalid"></small>
-          <small ng-show="initForm..$dirty && initForm.AWS_ACCESS_KEY_ID.$invalid"></small>
+          <small ng-show="initform..$dirty && initform..$invalid"></small>
+          <small ng-show="initform..$dirty && initform.aws_access_key_id.$invalid"></small>
         </div>-->
       </div>
 
-<!--       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;Additional Settings (Optional)</h2>
+<!--       <h2 class="content-subhead"><i class="fa fa-cube fa-2x"></i>&nbsp;additional settings (optional)</h2>
       <div class="pure-control-group pure-form-aligned">
-        <label for="DNS">DNS:</label>
-        <input ng-model="data.user" class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
-        <p>DNS is ... examples of DNS are.... vaild format is</p>
+        <label for="dns">dns:</label>
+        <input ng-model="data.user" class="pure-input-1-2" name="dns" type="text" placeholder="e.g. namecheap.com, godaddy.com">
+        <p>dns is ... examples of dns are.... vaild format is</p>
       </div>
       <div class="validation">
         <small ng-show=""></small>
         <small ng=shop=""></small>
       </div> -->
-        <button type="submit" class="button-xlarge pure-button pure-button-primary">Create</button>
+        <button type="submit" class="button-xlarge pure-button pure-button-primary">create</button>
     </fieldset>
   </form>
 </div>

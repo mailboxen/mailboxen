@@ -1,0 +1,8 @@
+---
+domain: 'http://news.ycombinator.com/'
+dns: ''
+aws_access_key: 'http://news.ycombinator.com/'
+aws_secret_key: 'http://news.ycombinator.com/'
+users:
+  - { name: user1, password: sdfdsfsff }
+  - { name: user2, password: sdfsdfdf }
