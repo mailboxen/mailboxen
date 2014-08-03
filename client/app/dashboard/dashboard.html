@@ -1,2 +1,5 @@
-<p>helllloooo!!!! dashboard</p>
-<bar-chart></bar-chart>
+<div class="pure-g">
+  <div class="pure-u-1-2" ng-repeat="chart in chartTypes">
+    <div ac-chart="chart" ac-data="data1" ac-config="config1"></div>
+   </div>
+</div>

@@ -253,5 +253,9 @@ aside {
   width: 135px;
 }
 img {
-  width:100%;
+  width: 100%;
+}
+[ac-chart] {
+  min-width:400px;
+  min-height: 400px;
 }

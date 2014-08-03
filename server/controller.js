@@ -2,7 +2,8 @@ var promise = require('bluebird');
 var fs = require('fs');
 var xmlParser = require('xml2js');
 
-var configFilePath = 'data/config.txt';
+var configPath = 'data/config.txt';
+var xmlPath = 'data/log.xml';
 
 var parseConfig = function(obj) {
   var result = [];
@@ -16,7 +17,7 @@ var parseConfig = function(obj) {
 };
 
 module.exports.checkConfig = function(req, res, next) {
-  if (fs.existsSync(configFilePath)) {
+  if (fs.existsSync(configPath)) {
     res.redirect('/setting');
   }
   next();
@@ -25,7 +26,7 @@ module.exports.checkConfig = function(req, res, next) {
 module.exports.writeFile = function(req, res) {
   var data = parseConfig(req.body);
   // filepath === relative to the roote directory
-  fs.writeFile(configFilePath, data, function(err) {
+  fs.writeFile(configPath, data, function(err) {
     if (err) {
       console.log(err);
       throw err;
@@ -41,7 +42,7 @@ module.exports.navigateToSetting = function(req, res){
 module.exports.parseXml = function(req, res) {
   var readFile = promise.promisify(fs.readFile);
   var parseString = promise.promisify(new xmlParser.Parser().parseString);
-  readFile('log.xml')
+  readFile(xmlPath)
     .then(parseString)
     // some option is needed to prune the raw log
     .then(JSON.stringify)
