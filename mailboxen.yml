@@ -1,0 +1,59 @@
+#!/usr/bin/env ansible-playbook -i hosts/ec2.py
+---
+- hosts: tag_Name_mailboxen
+  sudo: yes
+  tasks:
+
+  - name: update to lastest packages
+    yum: name=* state=latest
+
+
+# Setup OpenSMTPD
+  - name: install OpenSMTPD from EPEL
+    yum: name=opensmtpd enablerepo=epel
+
+  - name: install spamassassin
+    yum: name=spamassassin
+
+  - name: switch to OpenSMTPD
+    command: /usr/sbin/alternatives --set mta /usr/sbin/sendmail.opensmtpd
+#   alternatives: name=mta path=/usr/sbin/sendmail.opensmtpd
+
+  - name: stop sendmail
+    service: name=sendmail enabled=no state=stopped
+
+  - name: configure OpenSMTPD
+    template: src=files/smtpd.conf dest=/etc/opensmtpd/smtpd.conf owner=root group=root mode=0644
+    notify: restart OpenSMTPD
+
+
+# Generate certificates
+  - name: create self-signed SSL cert
+    command: openssl req -new -nodes -x509 -subj "/C=US/ST=CA/L=Mountain View/O=IT/CN={{domain}}" -days 3650 -keyout /etc/ssl/{{domain}}.key -out /etc/ssl/{{domain}}.crt -extensions v3_ca creates=/etc/ssl/{{domain}}.crt
+    notify: restart OpenSMTPD
+
+  - file: path=/etc/ssl/{{domain}}.key owner=root group=root mode=0600
+  - file: path=/etc/ssl/{{domain}}.crt owner=root group=root mode=0600
+
+
+# Create all users
+  - name: creating users
+    user: name={{item.name}} password={{item.password}} comment="Mailboxen User" shell=/sbin/nologin
+    with_items: users
+
+
+# Install Dovecot
+  - name: install Dovecot
+    yum: name=dovecot
+
+  - name: configure Dovecot
+    template: src=files/10-ssl.conf dest=/etc/dovecot/conf.d/10-ssl.conf owner=root group=root mode=0644
+    notify: restart Dovecot
+
+# Handlers
+  handlers:
+  - name: restart Dovecot
+    service: name=dovecot enabled=yes state=restarted
+
+  - name: restart OpenSMTPD
+    service: name=opensmtpd enabled=yes state=restarted

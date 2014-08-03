@@ -1,4 +1,5 @@
-angular.module('app', ['ui.router', 'app.dashboard', 'app.services.factories', 'app.services.d3', 'app.charts'])
+// the main app module loads two external modules (ui router, angular charts)
+angular.module('app', ['ui.router', 'angularCharts', 'app.init', 'app.update', 'app.about', 'app.dashboard', 'app.loading', 'app.factories'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('app', {
@@ -8,9 +9,24 @@ angular.module('app', ['ui.router', 'app.dashboard', 'app.services.factories', '
         templateUrl: 'app/app.html'
       });
     //redirect to login in page
-    $urlRouterProvider.otherwise('app/dashboard');
+    $urlRouterProvider.otherwise('app/update');
   })
-  .run(function() {
-    // TODO: auth
-
+  .run(function($rootScope, $http, $state, UtilFactory) {
+    $http({
+      method: 'GET',
+      url: '/user'
+    }).then(function(resp) {
+      if (resp.data) {
+        console.log(resp.data);
+      }
+    }).catch(function(err) {
+      console.log(err);
+    });
+    // $rootScope.$on('$stateChangeStart', function(evt, next, current) {
+    //  UtilFactory.isServerInitialized().then(
+    //    function(result){
+    //     console.log('result', result);
+    //    }
+    //   );
+    // });
   });

@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>mailserver</title>
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link rel="stylesheet" href="css/pure-min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 </head>
 
 <body ng-app="app">
@@ -13,13 +15,18 @@
   <!-- app dependencies -->
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="lib/d3/d3.min.js"></script>
+  <script src="lib/angular-charts/dist/angular-charts.min.js"></script>
+
 
   <!-- js files -->
   <script src="app/app.js"></script>
+  <script src="app/init/init.js"></script>
+  <script src="app/update/update.js"></script>
   <script src="app/dashboard/dashboard.js"></script>
-  <script src="app/charts/charts.js"></script>
-  <script src="app/services/d3-factory.js"></script>
-  <script src="app/services/factories.js"></script>
+  <script src="app/about/about.js"></script>
+  <script src="app/loading/loading.js"></script>
+  <script src="app/factories/factories.js"></script>
 </body>
 
 </html>

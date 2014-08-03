@@ -12,10 +12,11 @@
   "url": "https://github.com/mailboxen/mailboxen",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.7.2",
-    "body-parser": "^1.4.3",
-    "morgan": "^1.2.2",
     "bluebird": "^2.2.2",
+    "body-parser": "^1.4.3",
+    "express": "^4.7.2",
+    "morgan": "^1.2.2",
+    "node-ansible": "^0.2.1",
     "xml2js": "^0.4.4"
   },
   "devDependencies": {

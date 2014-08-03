@@ -9,7 +9,7 @@ module.exports = function(app, express) {
     extended: false
   }));
   app.use(bodyParser.json());
-  app.use(controller.parseXml);
+  app.get('/user', controller.isUser);
   app.post('/config', controller.writeFile);
-  app.get('/setting', controller.navigateToSetting)
+  app.get('/log', controller.parseXml);
 };
