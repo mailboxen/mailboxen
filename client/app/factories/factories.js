@@ -1,11 +1,17 @@
 angular.module('app.factories', [])
   .factory('UtilFactory', function($http, $state) {
-    // var isServerInitialized = function() {
-    //   return $http.get({
-    //     method: 'GET',
-    //     url: '/hello'
-    //   });
-    // };
+    var userExists = function() {
+      return $http({
+        method: 'GET',
+        url: '/user'
+      }).then(function(resp) {
+        if (resp.data) {
+          return resp.data;
+        }
+      }).catch(function(err) {
+        console.log(err);
+      });
+    };
 
     var submitConfigData = function(obj) {
       return $http({
@@ -21,7 +27,7 @@ angular.module('app.factories', [])
         });
     };
     return {
-      // isServerInitialized: isServerInitialized,
+      userExists: userExists,
       submitConfigData: submitConfigData
     };
   });

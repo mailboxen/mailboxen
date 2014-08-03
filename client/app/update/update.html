@@ -1,30 +1,30 @@
 <div class="header">
   <h1>Update</h1>
-  <h2>update ...</h2>
+  <h2>update your configuration.</h2>
 </div>
-<div class="content">
-  <form class="pure-form pure-form-aligned">
+<div class="content" >
+  <form novalidate ng-submit="updateData()" class="pure-form pure-form-aligned">
     <fieldset>
       <div class="pure-control-group pure-form-aligned">
         <label for="domain">Domain:</label>
-        <input class="pure-input-1-2" name="DOMAIN" type="url" placeholder="e.g. www.mailboxen.com">
+        <input class="pure-input-1-2" ng-model="user.DOMAIN" type="url" placeholder="e.g. www.mailboxen.com" value="{{user.DOMAIN}}" required>
       </div>
       <div class="pure-control-group pure-form-aligned">
         <label for="DNS">DNS:</label>
-        <input class="pure-input-1-2" name="DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com">
+        <input class="pure-input-1-2" ng-model="user.DNS" type="text" placeholder="e.g. namecheap.com, godaddy.com" value="{{user.DNS}}" required>
       </div>
       <div class="pure-control-group pure-form-aligned">
         <label for="AWS_ACCESS_KEY_ID">AWS_ID
         </label>
-        <input class="pure-input-1-2" name="AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF">
+        <input class="pure-input-1-2" ng-model="user.AWS_ACCESS_KEY_ID" type="text" placeholder="e.g. XYXDUIDFUIDF" value="user.AWS_ACCESS_KEY_ID" required>
       </div>
       <div class="pure-control-group pure-form-aligned">
         <label for="AWS_SECRET_ACCESS_KEY">AWS_KEY
         </label>
-        <input class="pure-input-1-2" name="AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd">
+        <input class="pure-input-1-2" ng-model="user.AWS_SECRET_ACCESS_KEY" type="text" placeholder="e.g. Xsd3569349dfsdfzffssd" value="AWS_SECRET_ACCESS_KEY" required>
       </div>
       <div class="pure-controls">
-        <button type="submit" class="pure-button pure-button-primary">UPDATE</button>
+        <button type="submit" class="button-xlarge pure-button pure-button-primary">UPDATE</button>
       </div>
     </fieldset>
   </form>
