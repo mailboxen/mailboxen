@@ -4,7 +4,7 @@
   "authors": [
     "dhfromkorea <dh@dhfromkorea.com>"
   ],
-  "license": "MIT",
+  "license": "BSD",
   "ignore": [
     "**/.*",
     "node_modules",
