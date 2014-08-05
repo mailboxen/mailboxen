@@ -1,61 +1,65 @@
-# Project Name
+Mailboxen is an app that lets you configure and maintain a simple, secure SMTP mail server in the comfort of your local desktop environment. Mailboxen was born out of [Y Combinator Hackathon](http://ychacks.challengepost.com/) and is currently under development to become more robust and usable.
 
-> Mailboxen
+Check out [this link](http://mailboxen.herokuapp.com/) to see a conceptual demo. This app is not functional yet.
 
 ## Table of Contents
+* [Motivation](#motivation)
+* [Features and Usage](#features-and-usage)
+* [Architecture](#architecture)
+* [Dependencies](#dependencies)
+* [Backlogs](#backlogs)
+* [Contributing](#contributing)
+* [Authors](#authors)
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+## Motivation
+We are developing this app for supporters of internet security and privacy. Emails stored by email providers like Gmail, Yahoo and Hotmail have been submitted to authorities without a search warrant (via the Stored Communications Act) and without user notification.
 
+Configuring a secure and reliable mail server is difficult and time consuming. Most people either resort to giving up their privacy by using free email services and paying the overhead of administrating their mail servers.
 
-## Usage
+It is time for users to take ownership of their emails, and decentralize the internet again.
 
-- run `npm start` in your command line to run the node server locally
-- go to 'localhost:8000' in your browser
-- fill out the form to provide the necessary credentials
-- that's all. our app will set up the email server on your EC2 instance and notify when it's done setting up.
+## Features and Usage
+Many moving parts are already built, yet they aren't assembled yet. Basically currently you can set up an SMPT server running your Amazon EC2 instance which is able to receive emails over SSL and interface with 3rd party mail clients which support SMTP.
 
-Ansible
-1. Install ansible on your local machine
-http://docs.ansible.com/intro_installation.html
-If you don’t have pip installed in your version of Python, install pip:
+Until all components are stiched up, you can manually edit the config.yml file and run `./mailboxen.yml`
 
-$ sudo easy_install pip
-Ansible also uses the following Python modules that need to be installed:
+## Architecture
+* Angular.js
+* D3.js
+* Node.js
+* Express
+* OpenSMTP
+* Dovecot
+* Ansible
+* ObjectiveFS: end-to-end filesystem
 
-echo "127.0.0.1" > ~/ansible_hosts
-export ANSIBLE_HOSTS=~/ansible_hosts
-$ sudo pip install paramiko PyYAML jinja2 httplib2
-
-2. Create an AWS instance with tag Name:mailboxen
-     - Security group allow: ssh, smtpd, https, imaps, 587, icmp
-3. Link your ec2-user private key in keys/ec2-user
-4. Configure domain and users/passwords in group_vars/tag_Name_mailboxes
-5. Run ./mailboxen.yml
-
-
-## Requirements
-
-- Node 0.10.x
--
-
-## Development
-
-### Installing Dependencies
+## Dependencies
+- Listed on Package.json & Bower.json
+- Ansible
 
 From within the root directory:
-
 ```sh
-sudo npm install -g bower
+brew install ansible
+brew install npm
+npm install -g bower
 npm install
 bower install
 ```
 
-## Contributing
+## Backlogs
+- generate a valid config.yml from the web interface user input
+- a script to install all dependencies
+- node script to trigger ansible
+- spam filtering
+- auditing
+- portability
+- persistence
+- outbound email
 
+## Authors
+* [DH Lee](http://github.com/dhfromkorea)
+* Grace Nordin
+* Thomas Nordin
+
+## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
