@@ -23,6 +23,8 @@ Many moving parts are already built, yet they aren't assembled yet. Basically cu
 
 Until all components are stiched up, you can manually edit the config.yml file and run `./mailboxen.yml`
 
+To see the user interface, run `node index.js` or `nodemon index.js`, if you have nodemon installed, from the root directory.
+
 ## Architecture
 * Angular.js
 * D3.js
