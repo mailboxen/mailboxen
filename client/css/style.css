@@ -275,3 +275,16 @@ img {
   position:absolute;
   bottom:0;
 }
+.beta-note {
+  background-color: rgba(255, 198, 57, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  width: 400px;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  color: #333;
+}
+a:visited {
+  color: inherit;
+};

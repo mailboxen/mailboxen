@@ -58,10 +58,10 @@ bower install
 - persistence
 - outbound email
 
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
 ## Authors
 * [DH Lee](http://github.com/dhfromkorea)
 * Grace Nordin
 * Thomas Nordin
-
-## Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
