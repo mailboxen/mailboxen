@@ -1,4 +1,4 @@
-Mailboxen is an app that lets you configure and maintain a simple, secure SMTP mail server in the comfort of your local desktop environment. Mailboxen was born out of [Y Combinator Hackathon](http://ychacks.challengepost.com/) and is currently under development to become more robust and usable.
+Mailboxen lets you configure and maintain a simple, secure SMTP mail server in the comfort of your local desktop environment. Mailboxen was born out of [Y Combinator Hackathon](http://ychacks.challengepost.com/) and is currently under development to become more robust and usable.
 
 Check out [this link](http://mailboxen.herokuapp.com/) to see a conceptual demo. This app is not functional yet.
 
