@@ -1,3 +1,4 @@
+# WARNING: all emails will be lost when instance goes down!'
 #!/usr/bin/env ansible-playbook -i hosts/ec2.py
 ---
 - hosts: tag_Name_mailboxen
