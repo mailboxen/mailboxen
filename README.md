@@ -61,8 +61,8 @@ bower install
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Authors
-[DH Lee](http://github.com/dhfromkorea)
-[Grace](http://challengepost.com/users/GraceO)
-[Thomas](http://challengepost.com/users/thomas2)
+- [DH Lee](http://github.com/dhfromkorea)
+- [Grace](http://challengepost.com/users/GraceO)
+- [Thomas](http://challengepost.com/users/thomas2)
 
 
