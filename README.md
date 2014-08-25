@@ -19,7 +19,7 @@ Configuring a secure and reliable mail server is difficult and time consuming. M
 It is time for users to take ownership of their emails, and decentralize the internet again.
 
 ## Features and Usage
-Many moving parts are already built, yet they aren't assembled yet. Basically currently you can set up an SMPT server running your Amazon EC2 instance which is able to receive emails over SSL and interface with 3rd party mail clients which support SMTP.
+Many moving parts are already built, yet they aren't assembled yet. Basically currently you can set up an SMPT server running your Amazon EC2 instance which is able to receive emails over SSL and interface with 3rd party mail clients which support SMTP/IMAP.
 
 Until all components are stiched up, you can manually edit the config.yml file and run `./mailboxen.yml`
 
@@ -33,7 +33,6 @@ To see the user interface, run `node index.js` or `nodemon index.js`, if you hav
 * OpenSMTP
 * Dovecot
 * Ansible
-* ObjectiveFS: end-to-end filesystem
 
 ## Dependencies
 - Listed on Package.json & Bower.json
@@ -62,6 +61,8 @@ bower install
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Authors
-* [DH Lee](http://github.com/dhfromkorea)
-* Grace Nordin
-* Thomas Nordin
+[DH Lee](http://github.com/dhfromkorea)
+[Grace](http://challengepost.com/users/GraceO)
+[Thomas](http://challengepost.com/users/thomas2)
+
+
